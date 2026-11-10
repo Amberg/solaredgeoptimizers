@@ -1,5 +1,10 @@
 # SolarEdge Optimizers Integration
 
+> **Fork Amberg:** Persönlicher Fork von [AndrewTapp/solaredgeoptimizers](https://github.com/AndrewTapp/solaredgeoptimizers) (Stand v2.5.0).
+> Einzige Änderung: Der Coordinator läuft alle **15 statt 5 Minuten** (`UPDATE_DELAY`). Light-Check bei frischen Daten und
+> Sperre bis zur nächsten vollen Abfrage liegen mit 14 Minuten knapp darunter. Bei veralteten Daten (nachts) bleibt es bei 30 Minuten.
+> Installation über HACS als Custom Repository `https://github.com/Amberg/solaredgeoptimizers` (ohne Release-ZIP, direkt aus `main`).
+
 [![Release](https://img.shields.io/github/release/AndrewTapp/solaredgeoptimizers.svg)](https://github.com/AndrewTapp/solaredgeoptimizers/releases)
 [![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/AndrewTapp/solaredgeoptimizers.svg)](https://www.codefactor.io/repository/github/AndrewTapp/solaredgeoptimizers)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/AndrewJTapp)

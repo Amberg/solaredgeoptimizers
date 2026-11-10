@@ -1,17 +1,17 @@
 {
   "domain": "solaredgeoptimizers",
-  "name": "SolarEdge Optimizers Data",
+  "name": "SolarEdge Optimizers (Amberg)",
   "codeowners": [
-    "@AndrewTapp"
+    "@Amberg"
   ],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/AndrewTapp/solaredgeoptimizers",
+  "documentation": "https://github.com/Amberg/solaredgeoptimizers",
   "homekit": {},
   "iot_class": "cloud_polling",
-  "issue_tracker": "https://github.com/AndrewTapp/solaredgeoptimizers/issues",
+  "issue_tracker": "https://github.com/Amberg/solaredgeoptimizers/issues",
   "requirements": [],
   "ssdp": [],
-  "version": "2.5.0",
+  "version": "2.5.0-amberg.1",
   "zeroconf": []
 }

@@ -25,7 +25,7 @@ Each constant is documented below with a full description of what it is used for
 - LIGHT_CHECK_MIN_INTERVAL: Minimum interval between lightweight check and next full refresh
   trigger; avoids thundering herd when many optimizers update at once (adaptive polling).
 - LIGHT_CHECK_DESIRED_INTERVAL_FRESH: When data is fresh (within stale delta), desired
-  interval between lightweight checks (e.g. 5 min).
+  interval between lightweight checks (upstream 5 min; Amberg fork 14 min with a 15 min tick).
 - LIGHT_CHECK_DESIRED_INTERVAL_STALE: When data is stale (or age unknown), desired
   interval between lightweight checks (e.g. 30 min).
 
@@ -125,7 +125,7 @@ def redact_url_for_log(url: str) -> str:
 
 
 # Coordinator tick interval. Actual portal load is controlled by adaptive polling in the coordinator.
-UPDATE_DELAY = timedelta(minutes=5)
+UPDATE_DELAY = timedelta(minutes=15)  # Amberg fork: 15 min (upstream 5 min); the portal updates optimizers about every 15 min
 # Max seconds for one coordinator refresh (initial and full refresh). Slow API or many optimizers may need >15 min.
 COORDINATOR_REFRESH_TIMEOUT_SEC = 1800  # 30 min
 
@@ -134,9 +134,9 @@ CHECK_TIME_DELTA_SOLAREDGE_ONE = timedelta(hours=1)  # SolarEdge One: 1 hour sta
 # When data is from legacy API, re-try One this often so we revert to One when it becomes available
 REVERT_TO_ONE_RETRY_INTERVAL = timedelta(minutes=30)
 # Adaptive polling: min interval between light check and full refresh trigger (avoid thundering herd)
-LIGHT_CHECK_MIN_INTERVAL = timedelta(minutes=5)
+LIGHT_CHECK_MIN_INTERVAL = timedelta(minutes=14)  # Amberg fork: just below UPDATE_DELAY so every tick may trigger a full refresh
 # Desired interval between lightweight checks when data is fresh (within stale delta)
-LIGHT_CHECK_DESIRED_INTERVAL_FRESH = timedelta(minutes=5)
+LIGHT_CHECK_DESIRED_INTERVAL_FRESH = timedelta(minutes=14)  # Amberg fork: just below UPDATE_DELAY so every tick runs a light check
 # Desired interval between lightweight checks when data is stale or age unknown
 LIGHT_CHECK_DESIRED_INTERVAL_STALE = timedelta(minutes=30)
 
